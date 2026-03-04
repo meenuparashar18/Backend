@@ -352,7 +352,14 @@
 //     console.log("File content:",data);
 //   }
 // });
-
+// const fs = require("fs");
+// fs.readFile("data.txt","utf-8",(err, data)=>{
+//     if(err){
+//         console.log("Error:",err);
+//     }else{
+//         console.log("File content:",data);
+//     }
+// });
 
 
 
@@ -360,12 +367,20 @@
 //write file ye purani file ka content replace kr deta h
 
 // const fs=require("fs");
-// fs.writeFile("notes.txt","hii i am meenu parashar",(err)=>{
+// fs.writeFile("notes.txt","hoiiiiiiii",(err)=>{
 //   if(err){
 //     console.log("Error");
 //   }else{
 //     console.log("File written successfully");
 //   }
+// });
+// const fs= require("fs");
+// fs.writeFile("notes.txt", "backend padha do guys",(err)=>{
+//     if(err){
+//         console.log("Error");
+//     }else{
+//         console.log("File written successfully");
+//     }
 // });
 
 
@@ -382,7 +397,14 @@
 //     console.log("file updated successfully");
 //   }
 // });
-
+// const fs= require("fs");
+// fs.appendFile("notes.txt","\n i am learning backend",(err)=>{
+//     if(err){
+//         console.log("Error");
+//     }else{
+//         console.log("File updated successfully");
+//     }
+// });
 
 
 //delete file
@@ -395,6 +417,14 @@
 //   }
 
 // });
+// const fs=require("fs");
+// fs.unlink("data.txt",(err)=>{
+//     if(err){
+//         console.log("Error");
+//     }else{
+//         console.log("File deleted successfully");
+//     }
+// })
 
 //synochronus me ye kaam seedha seedha ho jata h
 
@@ -406,6 +436,13 @@
 // });
 // server.listen(3000,()=>{
 //   console.log("server running on http://localhost:3000");
+// });
+// const http = require("http");
+// const server = http.createServer((req , res)=>{
+//     res.end("meenu is learning backend");
+// });
+// server.listen(3000,()=>{
+//     console.log("server running on http://localhost:3000");
 // });
 
 // yha tak ho gya basic server
@@ -429,12 +466,60 @@
 // }); halfffff h ye abhi 
 
 
+const http =require("http");
+
+/*
+  Create an HTTP server.
+  This callback function runs EVERY time a client sends a request.
+*/const server = http.createServer((req, res) => {  // Extract useful information from the request
+  const method = req.method;
+  const url = req.url;
+
+  // Handle GET request to home route
+  if (method === "GET" && url === "/") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Welcome to the Home Page");
+  }
+
+  // Handle GET request to /users route
+  else if (method === "GET" && url === "/users") {
+    const users = { users: ["Alice", "Bob", "Charlie"] };
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(users));
+  }
+  // Handle POST request to /users route
+  else if (method === "POST" && url === "/users") {
+    let body = "";
+    // Collect incoming data chunks
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+    // When all data has arrived
+    req.on("end", () => {
+      const parsedBody = JSON.parse(body);
+
+      res.writeHead(201, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({
+        message: "User created successfully",
+        data: parsedBody,
+      }));
+    });
+  }
+  // Handle unknown routes
+  else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Route not found");
+  }
+});
+
+/*
+  Start the server and make it listen on port 3000.
+  This tells the OS to forward traffic on port 3000 to this process.
+*/
+server.listen(3000,() => {console.log("Server is running on http://localhost:3000");
+});
 
 
-const http = require("http");
-const server = http.createServer((req , res)=>{
-  res.end("hiii i a meenu parashar");
-});
-server.listen(3000,()=>{
-  console.log("server running on http://localhost:3000");
-});
+
+
+
