@@ -57,12 +57,12 @@
 const fs = require("fs");
 
 const readTodo = function(){
-    const data = fs.readFileSync("./todo.json" , "utf-8");
+    const data = fs.readFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , "utf-8");
     return JSON.parse(data);
 }
 
 const writeTodos = function(newTodos){
-    const data = fs.writeFileSync("./todo.json" , JSON.stringify(newTodos) );
+    const data = fs.writeFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , JSON.stringify(newTodos) );
     
 }
 
