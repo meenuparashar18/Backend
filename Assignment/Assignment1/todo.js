@@ -78,3 +78,103 @@ function addTodo(task){
 }
 
 addTodo("Say hi to class!");
+
+const fs = require ("fs");
+const data = fs.readFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , "utf-8");
+return JSON.parse(data);
+const writeTodos = function(newTodos))
+
+// const fs = require("fs");
+// const data = fs.readFileSync("a.txt", "utf-8");
+// console.log(data);
+
+// const fs = require("fs");
+// fs.readFile("a.txt", "utf-8" ,(err , data)=>{
+//     if(err){
+//         console.log("error aaya");
+//     }else{
+//         console.log(data);
+//     }
+// });
+
+
+// //write
+// const fs = require("fs");
+// const data = writeFileSync("a.txt","jeee","utf-8");
+// console.log("file written successfully");
+
+
+
+// const fs = require("fs");
+// fs.writeFile("a.txt", "hello","utf-8"(err , data)=>{
+//     if(err){
+//         console.log("error aabgya");
+
+//     }else{
+//         console.log("file written successfully");
+//     }
+// });
+
+// const fs = require("fs");
+// const data = fs.appendFileSync("a.txt", "b.txt\n" , "utf-8");
+// console.log("fil aapenkdnfjkdsnfjeks");
+
+
+// const fs = require("fs");
+// fs.appendFile("a.txt", "b.txt\n" (err , data)=>{
+//     if(err){
+//         console.log("error aabgya");
+//     }else{        console.log("file aapenkdnfjkdsnfjeks");
+//     }
+// });
+
+// const fs= require("fs");
+// const data = fs.unlinkSync("a.txt", "utf-8");
+// console.log("file deleted successfully");
+
+// const fs = require("fs");
+// fs.unlinkFile("a.txt", "utf-8" , (err , data)=>{
+//     if(err){
+//         console.log("error aabgya");
+//     }else{
+//         console.log("file deleted successfully");
+//     }   
+
+
+///status
+// const fs= require("fs");
+// fs.stat("a.txt" (err, stat) => {
+//     console.log(stat);
+//     console.log(stat.isFile());
+// });
+
+// console.log(stat.isdirectry());
+
+// const fs = require("fs");
+// fs.mkdir("new",(err)=>{
+//     if(err){
+//         console.log("error aabgya");
+//     }else{
+//         console.log("folder created successfully");
+//     }
+// });
+
+
+const http = require("http");
+const fs = require("fs");
+const server = http.createServer((req , res))=>{
+    if(req.url === "/"){
+        Response.writeHead(204);
+        res.end();
+
+    }
+    const date = new Date();
+    fs.appendFileSync("c.txt", ${date}:request is on this\n , (err)=>{
+        if(err){
+            console.log("error aabgya");
+        }else{
+            console.log("file aapenkdnfjkdsnfjeks");
+        }
+
+)
+}
