@@ -54,35 +54,35 @@
 
 
 
-const fs = require("fs");
+// const fs = require("fs");
 
-const readTodo = function(){
-    const data = fs.readFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , "utf-8");
-    return JSON.parse(data);
-}
+// const readTodo = function(){
+//     const data = fs.readFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , "utf-8");
+//     return JSON.parse(data);
+// }
 
-const writeTodos = function(newTodos){
-    const data = fs.writeFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , JSON.stringify(newTodos) );
+// const writeTodos = function(newTodos){
+//     const data = fs.writeFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , JSON.stringify(newTodos) );
     
-}
+// }
 
-function addTodo(task){
-    const currentTodos = readTodo();
-    const newTodo = {
-        task : task,
-        id : Date.now(),
-        status : false,
-    }
-    currentTodos.push(newTodo);
-    writeTodos(currentTodos);
-}
+// function addTodo(task){
+//     const currentTodos = readTodo();
+//     const newTodo = {
+//         task : task,
+//         id : Date.now(),
+//         status : false,
+//     }
+//     currentTodos.push(newTodo);
+//     writeTodos(currentTodos);
+// }
 
-addTodo("Say hi to class!");
+// addTodo("Say hi to class!");
 
-const fs = require ("fs");
-const data = fs.readFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , "utf-8");
-return JSON.parse(data);
-const writeTodos = function(newTodos))
+// const fs = require ("fs");
+// const data = fs.readFileSync("C:/Users/ril/Desktop/Backend/Backend/Assignment/Assignment1/todo.json" , "utf-8");
+// return JSON.parse(data);
+// const writeTodos = function(newTodos))
 
 // const fs = require("fs");
 // const data = fs.readFileSync("a.txt", "utf-8");
@@ -160,21 +160,21 @@ const writeTodos = function(newTodos))
 // });
 
 
-const http = require("http");
-const fs = require("fs");
-const server = http.createServer((req , res))=>{
-    if(req.url === "/"){
-        Response.writeHead(204);
-        res.end();
+// const http = require("http");
+// const fs = require("fs");
+// const server = http.createServer((req , res))=>{
+//     if(req.url === "/"){
+//         Response.writeHead(204);
+//         res.end();
 
-    }
-    const date = new Date();
-    fs.appendFileSync("c.txt", ${date}:request is on this\n , (err)=>{
-        if(err){
-            console.log("error aabgya");
-        }else{
-            console.log("file aapenkdnfjkdsnfjeks");
-        }
+//     }
+//     const date = new Date();
+//     fs.appendFileSync("c.txt", ${date}:request is on this\n , (err)=>{
+//         if(err){
+//             console.log("error aabgya");
+//         }else{
+//             console.log("file aapenkdnfjkdsnfjeks");
+//         }
 
-)
-}
+// )
+// }

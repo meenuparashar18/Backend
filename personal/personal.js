@@ -526,6 +526,41 @@ server.listen(3000,()=>{
 // });
 
 
+//express se server banana
+const express = require("express");
+
+const app = express();
+
+const PORT = 3000;
+
+// Home route
+app.get("/", (req, res) => {
+    res.send("Welcome to my Express Server");
+});
+
+// About route
+app.get("/about", (req, res) => {
+    res.send("This is the About Page");
+});
+
+// Random number route
+app.get("/random", (req, res) => {
+    const num = Math.floor(Math.random() * 100) + 1;
+    res.send(`Random number is ${num}`);
+});
+
+// Square route with query param
+app.get("/square", (req, res) => {
+    const num = req.query.num;
+    const square = num * num;
+
+    res.send(`Square is ${square}`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 
 
 
