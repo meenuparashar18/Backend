@@ -573,3 +573,14 @@ app.listen(PORT, () => {
 // });
 
 // app.listen(3000);
+
+
+//settimeut kese lagate h
+console.log("Start");
+
+setTimeout(() => {
+console.log("Middle");
+},1000);
+
+console.log("End");
+
