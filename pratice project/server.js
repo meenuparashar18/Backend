@@ -182,3 +182,32 @@ server.listen(3000, () => {
 console.log("Server running on port http://localhost:3000");
 });
 });
+
+
+
+
+//express se related 
+const express = require("express");
+
+const app = express();
+const PORT = 3000;
+
+// Home Route
+app.get("/", (req, res) => {
+    res.send("Server is running");
+});
+
+// About Route
+app.get("/about", (req, res) => {
+    res.send("This is about page");
+});
+
+// Time Route
+app.get("/time", (req, res) => {
+    const time = new Date();
+    res.send("Current Time: " + time);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
