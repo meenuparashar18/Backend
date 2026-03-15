@@ -211,3 +211,47 @@ app.get("/time", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+
+
+
+
+
+//express middleware
+const express = require("express");
+
+const app = express();
+const PORT = 3000;
+
+// middleware
+app.use(express.json());
+
+// home route
+app.get("/", (req, res) => {
+    res.send("Server is running 🚀");
+});
+
+// users route
+app.get("/users", (req, res) => {
+    const users = [
+        {id:1, name:"Rahul"},
+        {id:2, name:"Meena"},
+        {id:3, name:"Aman"}
+    ];
+
+    res.json(users);
+});
+
+// create user
+app.post("/users", (req, res) => {
+    const newUser = req.body;
+
+    res.json({
+        message: "User created successfully",
+        user: newUser
+    });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
