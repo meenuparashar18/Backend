@@ -587,4 +587,15 @@ server.listen(3000,()=>{
 
 
 
+// callback kese kaam krta h
+function doTask(callback) {
+setTimeout(() => {
+callback("Task finished");
+  },1000);
+}
+
+doTask((message) => {
+console.log(message);
+});
+
 

@@ -99,159 +99,159 @@
 //uske baad is data ko arrya me push kr dunga
 
 
-  const http = require("http");
-const fs = require("fs");
+//   const http = require("http");
+// const fs = require("fs");
 
-const PORT = 3000;
+// const PORT = 3000;
 
-const server = http.createServer((req, res) => {
+// const server = http.createServer((req, res) => {
 
-    const time = new Date().toLocaleString();
-    console.log(`Time: ${time} | Method: ${req.method} | URL: ${req.url}`);
+//     const time = new Date().toLocaleString();
+//     console.log(`Time: ${time} | Method: ${req.method} | URL: ${req.url}`);
 
    
-    if (req.method === "GET" && req.url === "/api/data") {
+//     if (req.method === "GET" && req.url === "/api/data") {
 
-        fs.readFile("data.json", "utf-8", (err, data) => {
-            if (err) {
-                res.writeHead(500, { "Content-Type": "text/plain" });
-                res.end("Error  file");
-            } else {
-                res.writeHead(200, { "Content-Type": "application/json" });
-                res.end(data);
-            }
-        });
+//         fs.readFile("data.json", "utf-8", (err, data) => {
+//             if (err) {
+//                 res.writeHead(500, { "Content-Type": "text/plain" });
+//                 res.end("Error  file");
+//             } else {
+//                 res.writeHead(200, { "Content-Type": "application/json" });
+//                 res.end(data);
+//             }
+//         });
 
-    }
+//     }
 
   
-    else if (req.method === "POST" && req.url === "/api/data") {
+//     else if (req.method === "POST" && req.url === "/api/data") {
 
-        let body = "";
+//         let body = "";
 
         
-        req.on("data", (chunk) => {
-            body += chunk;
-        });
+//         req.on("data", (chunk) => {
+//             body += chunk;
+//         });
 
-        req.on("end", () => {
+//         req.on("end", () => {
 
-            const userData = JSON.parse(body); 
+//             const userData = JSON.parse(body); 
 
-            fs.readFile("data.json", "utf-8", (err, data) => {
+//             fs.readFile("data.json", "utf-8", (err, data) => {
 
-                let users = [];
+//                 let users = [];
 
-                if (!err && data) {
-                    users = JSON.parse(data); 
-                }
+//                 if (!err && data) {
+//                     users = JSON.parse(data); 
+//                 }
 
-                users.push(userData); 
+//                 users.push(userData); 
 
-                fs.writeFile("data.json", JSON.stringify(users), (err) => {
+//                 fs.writeFile("data.json", JSON.stringify(users), (err) => {
 
-                    if (err) {
-                        res.writeHead(200, { "Content-Type": "text/plain" });
-                        res.end("Error");
-                    } else {
-                        res.writeHead(200, { "Content-Type": "application/json" });
-                        res.end(JSON.stringify({ message: "User added" }));
-                    }
+//                     if (err) {
+//                         res.writeHead(200, { "Content-Type": "text/plain" });
+//                         res.end("Error");
+//                     } else {
+//                         res.writeHead(200, { "Content-Type": "application/json" });
+//                         res.end(JSON.stringify({ message: "User added" }));
+//                     }
 
-                });
+//                 });
 
-            });
+//             });
 
-        });
+//         });
 
-    }
+//     }
 
-    else {
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("Server");
-    }
+//     else {
+//         res.writeHead(200, { "Content-Type": "text/plain" });
+//         res.end("Server");
+//     }
 
-});
+// });
 
-req.on("end", () => {
+// req.on("end", () => {
 
-    console.log(body);   // check kya data aaya
+//     console.log(body);   // check kya data aaya
 
-    const userData = JSON.parse(body);
-server.listen(3000, () => {
-console.log("Server running on port http://localhost:3000");
-});
-});
-
-
-
-
-//express se related 
-const express = require("express");
-
-const app = express();
-const PORT = 3000;
-
-// Home Route
-app.get("/", (req, res) => {
-    res.send("Server is running");
-});
-
-// About Route
-app.get("/about", (req, res) => {
-    res.send("This is about page");
-});
-
-// Time Route
-app.get("/time", (req, res) => {
-    const time = new Date();
-    res.send("Current Time: " + time);
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+//     const userData = JSON.parse(body);
+// server.listen(3000, () => {
+// console.log("Server running on port http://localhost:3000");
+// });
+// });
 
 
 
 
+// //express se related 
+// const express = require("express");
+
+// const app = express();
+// const PORT = 3000;
+
+// // Home Route
+// app.get("/", (req, res) => {
+//     res.send("Server is running");
+// });
+
+// // About Route
+// app.get("/about", (req, res) => {
+//     res.send("This is about page");
+// });
+
+// // Time Route
+// app.get("/time", (req, res) => {
+//     const time = new Date();
+//     res.send("Current Time: " + time);
+// });
+
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
 
 
-//express middleware
-const express = require("express");
 
-const app = express();
-const PORT = 3000;
 
-// middleware
-app.use(express.json());
 
-// home route
-app.get("/", (req, res) => {
-    res.send("Server is running 🚀");
-});
 
-// users route
-app.get("/users", (req, res) => {
-    const users = [
-        {id:1, name:"Rahul"},
-        {id:2, name:"Meena"},
-        {id:3, name:"Aman"}
-    ];
+// //express middleware
+// const express = require("express");
 
-    res.json(users);
-});
+// const app = express();
+// const PORT = 3000;
 
-// create user
-app.post("/users", (req, res) => {
-    const newUser = req.body;
+// // middleware
+// app.use(express.json());
 
-    res.json({
-        message: "User created successfully",
-        user: newUser
-    });
-});
+// // home route
+// app.get("/", (req, res) => {
+//     res.send("Server is running 🚀");
+// });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// // users route
+// app.get("/users", (req, res) => {
+//     const users = [
+//         {id:1, name:"Rahul"},
+//         {id:2, name:"Meena"},
+//         {id:3, name:"Aman"}
+//     ];
+
+//     res.json(users);
+// });
+
+// // create user
+// app.post("/users", (req, res) => {
+//     const newUser = req.body;
+
+//     res.json({
+//         message: "User created successfully",
+//         user: newUser
+//     });
+// });
+
+// app.listen(PORT, () => {
+//     console.log(`Server running on http://localhost:${PORT}`);
+// });
