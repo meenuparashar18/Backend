@@ -338,13 +338,13 @@
 // server.listen(3000,()=>{
 //   console.log("server running on http://localhost:3000");
 // });
-const http = require("http"); 
-const server = http.createServer((req , res)=>{
-    res.end("meenu is learning backend");
-});
-server.listen(3000,()=>{
-    console.log("server running on http://localhost:3000");
-});
+// const http = require("http"); 
+// const server = http.createServer((req , res)=>{
+//     res.end("meenu is learning backend");
+// });
+// server.listen(3000,()=>{
+//     console.log("server running on http://localhost:3000");
+// });
 
 
 // sabse pahle we want to study FS module
@@ -585,17 +585,18 @@ server.listen(3000,()=>{
 // console.log("End");
 
 
+3.
 
 
 // callback kese kaam krta h
-function doTask(callback) {
-setTimeout(() => {
-callback("Task finished");
-  },1000);
-}
+// function doTask(callback) {
+// setTimeout(() => {
+// callback("Task finished");
+//   },1000);
+// }
 
-doTask((message) => {
-console.log(message);
-});
+// doTask((message) => {
+// console.log(message);
+// });
 
 
