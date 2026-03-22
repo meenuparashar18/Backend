@@ -33,11 +33,24 @@
 // console.log(min);
 
 //5. Reverse an array (manual)
-const arr = [1, 2, 3];
+// const arr = [1, 2, 3];
 
-let reversed = [];
+// let reversed = [];
 
-for (let i = arr.length - 1; i >= 0; i--) {
-  reversed.push(arr[i]);
+// for (let i = arr.length - 1; i >= 0; i--) {
+//   reversed.push(arr[i]);
+// }
+// console.log(reversed);
+
+//6. Remove duplicates (preserve order)
+const arr = [1, 2, 2, 3, 1];
+
+let result = [];
+
+for (let i = 0; i < arr.length; i++) {
+  if (!result.includes(arr[i])) {
+    result.push(arr[i]);
+  }
 }
-console.log(reversed);
+
+console.log(result);
