@@ -369,17 +369,28 @@
 // */
 
 //32. Rename a key in object immutably
-const user = { fullName: 'A', age: 20 };
+// const user = { fullName: 'A', age: 20 };
 
-// Destructure to pick the value and rest of the object
-const { fullName, ...rest } = user;
+// // Destructure to pick the value and rest of the object
+// const { fullName, ...rest } = user;
 
-// Create new object with renamed key
-const updatedUser = { name: fullName, ...rest };
+// // Create new object with renamed key
+// const updatedUser = { name: fullName, ...rest };
 
-console.log(updatedUser);
-// Output: { name: 'A', age: 20 }
+// console.log(updatedUser);
+// // Output: { name: 'A', age: 20 }
 
-// Original object remains unchanged
-console.log(user);
-// Output: { fullName: 'A', age: 20 }
+// // Original object remains unchanged
+// console.log(user);
+// // Output: { fullName: 'A', age: 20 }
+
+
+//33. Merge defaults with provided config
+const defaults = { retries: 3, timeout: 500 };
+const config = { timeout: 100 };
+
+// Merge, giving priority to `config`
+const mergedConfig = { ...defaults, ...config };
+
+console.log(mergedConfig);
+// Output: { retries: 3, timeout: 100 }
