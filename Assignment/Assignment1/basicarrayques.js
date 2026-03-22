@@ -123,16 +123,24 @@
 // console.log(result);
 
 //12. Find index of first occurrence (manual)
-const arr = ['a', 'b', 'c'];
-const target = 'b';
+// const arr = ['a', 'b', 'c'];
+// const target = 'b';
 
-let index = -1;
+// let index = -1;
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] === target) {
-    index = i;
-    break; 
-  }
-}
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] === target) {
+//     index = i;
+//     break; 
+//   }
+// }
 
-console.log(index);
+// console.log(index);
+
+//13. Merge two arrays immutably
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+
+const result = [...arr1, ...arr2];
+
+console.log(result);
