@@ -185,16 +185,27 @@
 // console.log(result);
 
 //16. Create range array (inclusive)
-function createRange(start, end) {
-  let result = [];
+// function createRange(start, end) {
+//   let result = [];
 
-  if (start > end) return result; 
+//   if (start > end) return result; 
 
-  for (let i = start; i <= end; i++) {
-    result.push(i);
-  }
+//   for (let i = start; i <= end; i++) {
+//     result.push(i);
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(createRange(3, 6));
+// console.log(createRange(3, 6));
+
+// 17. Remove item at index immutably
+const arr = [1, 2, 3];
+const i = 1;
+
+const result = [
+  ...arr.slice(0, i),
+  ...arr.slice(i + 1)
+];
+
+console.log(result);
