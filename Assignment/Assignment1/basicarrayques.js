@@ -393,8 +393,28 @@
 // console.log(mergedConfig);
 
 //34. Check if object is empty
-const obj1 = {};
+// const obj1 = {};
 
-const isEmpty = Object.keys(obj1).length === 0;
+// const isEmpty = Object.keys(obj1).length === 0;
 
-console.log(isEmpty); 
+// console.log(isEmpty); 
+
+//SECTION C — ARRAY OF OBJECTS (30 questions)
+//(Goal: real backend-like tasks — aggregation, joins, grouping, paging, search, update patterns)
+
+//Use the base data for many questions (adjusted per question):
+
+//35. Total spending per user (aggregate)
+const orders = [
+  { id: 1, userId: 1, total: 500, status: 'completed' },
+  { id: 2, userId: 2, total: 300, status: 'pending' },
+  { id: 3, userId: 1, total: 200, status: 'completed' },
+  { id: 4, userId: 3, total: 700, status: 'completed' }
+];
+
+const totalSpentPerUser = orders.reduce((acc, order) => {
+  acc[order.userId] = (acc[order.userId] || 0) + order.total;
+  return acc;
+}, {});
+
+console.log(totalSpentPerUser);
