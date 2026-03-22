@@ -146,20 +146,40 @@
 // console.log(result);
 
 //14. Interleave two arrays
-const arr1 = [1, 2];
-const arr2 = [10, 20];
+// const arr1 = [1, 2];
+// const arr2 = [10, 20];
+
+// let result = [];
+
+// let maxLen = Math.max(arr1.length, arr2.length);
+
+// for (let i = 0; i < maxLen; i++) {
+//   if (i < arr1.length) {
+//     result.push(arr1[i]);
+//   }
+//   if (i < arr2.length) {
+//     result.push(arr2[i]);
+//   }
+// }
+
+// console.log(result);
+
+//15. Sliding window sums (window size k)
+const arr = [1, 2, 3, 4];
+let k = 2;
 
 let result = [];
+let windowSum = 0;
+for (let i = 0; i < k; i++) {
+  windowSum += arr[i];
+}
 
-let maxLen = Math.max(arr1.length, arr2.length);
+result.push(windowSum);
 
-for (let i = 0; i < maxLen; i++) {
-  if (i < arr1.length) {
-    result.push(arr1[i]);
-  }
-  if (i < arr2.length) {
-    result.push(arr2[i]);
-  }
+
+for (let i = k; i < arr.length; i++) {
+  windowSum = windowSum + arr[i] - arr[i - k];
+  result.push(windowSum);
 }
 
 console.log(result);
