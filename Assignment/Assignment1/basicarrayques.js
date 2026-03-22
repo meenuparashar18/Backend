@@ -248,8 +248,15 @@
 
 
 //22. Add / update property immutably
-const obj = { name: 'Aman' };
+// const obj = { name: 'Aman' };
 
-const newObj = { ...obj, role: 'admin' };
+// const newObj = { ...obj, role: 'admin' };
 
-console.log(newObj);
+// console.log(newObj);
+
+//23. Delete property immutably
+const user = { name: 'A', password: 'x' };
+
+const { password, ...rest } = user;
+
+console.log(rest);
