@@ -218,8 +218,19 @@
 // console.log(count);
 
 //19. Unique sorted array
-const arr = [3, 1, 2, 3, 2];
+// const arr = [3, 1, 2, 3, 2];
 
-const result = [...new Set(arr)].sort((a, b) => a - b);
+// const result = [...new Set(arr)].sort((a, b) => a - b);
+
+// console.log(result);
+
+//20. Map indices to values (index map)
+const arr = ['a', 'b'];
+
+let result = {};
+
+for (let i = 0; i < arr.length; i++) {
+  result[i] = arr[i];
+}
 
 console.log(result);
