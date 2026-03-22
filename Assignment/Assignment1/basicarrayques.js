@@ -211,8 +211,15 @@
 // console.log(result);
 
 //18. Count elements matching predicate
-const arr = [5, 12, 8, 20];
+// const arr = [5, 12, 8, 20];
 
-const count = arr.filter(x => x > 10).length;
+// const count = arr.filter(x => x > 10).length;
 
-console.log(count);
+// console.log(count);
+
+//19. Unique sorted array
+const arr = [3, 1, 2, 3, 2];
+
+const result = [...new Set(arr)].sort((a, b) => a - b);
+
+console.log(result);
