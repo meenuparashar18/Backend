@@ -74,18 +74,30 @@
 // console.log(freq);
 
 //8. Flatten 1-level nested array
-const arr = [1, [2, 3], 4];
+// const arr = [1, [2, 3], 4];
 
-let result = [];
+// let result = [];
 
-for (let i = 0; i < arr.length; i++) {
-  if (Array.isArray(arr[i])) {
-    for (let j = 0; j < arr[i].length; j++) {
-      result.push(arr[i][j]);
-    }
-  } else {
-    result.push(arr[i]);
-  }
-}
+// for (let i = 0; i < arr.length; i++) {
+//   if (Array.isArray(arr[i])) {
+//     for (let j = 0; j < arr[i].length; j++) {
+//       result.push(arr[i][j]);
+//     }
+//   } else {
+//     result.push(arr[i]);
+//   }
+// }
+// console.log(result);
+
+//9. Rotate array by k steps (right)
+const arr = [1, 2, 3, 4];
+let k = 1;
+
+k = k % arr.length; 
+
+const result = [
+  ...arr.slice(-k),
+  ...arr.slice(0, arr.length - k)
+];
 
 console.log(result);
