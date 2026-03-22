@@ -337,33 +337,49 @@
 
 
 //31. Merge nested objects immutably (one-level nested)
-const user = { 
-  name: 'A', 
-  address: { city: 'Old', zip: 123 } 
-};
+// const user = { 
+//   name: 'A', 
+//   address: { city: 'Old', zip: 123 } 
+// };
 
-// Update city immutably
-const updatedUser = {
-  ...user,
-  address: {
-    ...user.address,
-    city: 'New'
-  }
-};
+// // Update city immutably
+// const updatedUser = {
+//   ...user,
+//   address: {
+//     ...user.address,
+//     city: 'New'
+//   }
+// };
+
+// console.log(updatedUser);
+// /* Output:
+// {
+//   name: 'A',
+//   address: { city: 'New', zip: 123 }
+// }
+// */
+
+// // Original object remains unchanged
+// console.log(user);
+// /* Output:
+// {
+//   name: 'A',
+//   address: { city: 'Old', zip: 123 }
+// }
+// */
+
+//32. Rename a key in object immutably
+const user = { fullName: 'A', age: 20 };
+
+// Destructure to pick the value and rest of the object
+const { fullName, ...rest } = user;
+
+// Create new object with renamed key
+const updatedUser = { name: fullName, ...rest };
 
 console.log(updatedUser);
-/* Output:
-{
-  name: 'A',
-  address: { city: 'New', zip: 123 }
-}
-*/
+// Output: { name: 'A', age: 20 }
 
 // Original object remains unchanged
 console.log(user);
-/* Output:
-{
-  name: 'A',
-  address: { city: 'Old', zip: 123 }
-}
-*/
+// Output: { fullName: 'A', age: 20 }
