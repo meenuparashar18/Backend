@@ -280,13 +280,18 @@
 // console.log(inverted);
 
 //26. Deep clone simple object (no functions)
-const obj = { a: { b: 2 } };
+// const obj = { a: { b: 2 } };
 
-const deepCopy = JSON.parse(JSON.stringify(obj));
+// const deepCopy = JSON.parse(JSON.stringify(obj));
 
-deepCopy.a.b = 100;
+// deepCopy.a.b = 100;
 
-console.log(obj.a.b); 
-console.log(deepCopy.a.b); 
+// console.log(obj.a.b); 
+// console.log(deepCopy.a.b); 
 
 //27. Count properties (keys)
+const obj = { a: 1, b: 2 };
+
+const count = Object.keys(obj).length;
+
+console.log(count); 
