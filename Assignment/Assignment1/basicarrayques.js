@@ -270,11 +270,21 @@
 // console.log(result);
 
 //25. Convert keys ↔ values (invert object)
-const obj = { a: 1, b: 2 };
+// const obj = { a: 1, b: 2 };
 
-const inverted = Object.entries(obj).reduce((acc, [key, value]) => {
-  acc[value] = key;
-  return acc;
-}, {});
+// const inverted = Object.entries(obj).reduce((acc, [key, value]) => {
+//   acc[value] = key;
+//   return acc;
+// }, {});
 
-console.log(inverted);
+// console.log(inverted);
+
+//26. Deep clone simple object (no functions)
+const obj = { a: { b: 2 } };
+
+const deepCopy = JSON.parse(JSON.stringify(obj));
+
+deepCopy.a.b = 100;
+
+console.log(obj.a.b); 
+console.log(deepCopy.a.b); 
