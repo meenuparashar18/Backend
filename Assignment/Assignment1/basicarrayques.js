@@ -225,12 +225,23 @@
 // console.log(result);
 
 //20. Map indices to values (index map)
-const arr = ['a', 'b'];
+// const arr = ['a', 'b'];
 
-let result = {};
+// let result = {};
 
-for (let i = 0; i < arr.length; i++) {
-  result[i] = arr[i];
+// for (let i = 0; i < arr.length; i++) {
+//   result[i] = arr[i];
+// }
+
+// console.log(result);
+
+//SECTION B — OBJECTS (15 questions)
+//(Goal: property access, mutation vs immutability, merging, cloning, nested objects)
+
+
+//21. List keys and values (iteration)
+const obj = { name: 'Aman', age: 22 };
+
+for (let key in obj) {
+  console.log(key, obj[key]);
 }
-
-console.log(result);
