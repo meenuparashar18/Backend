@@ -262,9 +262,19 @@
 // console.log(rest);
 
 //24. Merge two objects (deep vs shallow)
-const a = { x: 1 };
-const b = { y: 2 };
+// const a = { x: 1 };
+// const b = { y: 2 };
 
-const result = { ...a, ...b };
+// const result = { ...a, ...b };
 
-console.log(result);
+// console.log(result);
+
+//25. Convert keys ↔ values (invert object)
+const obj = { a: 1, b: 2 };
+
+const inverted = Object.entries(obj).reduce((acc, [key, value]) => {
+  acc[value] = key;
+  return acc;
+}, {});
+
+console.log(inverted);
