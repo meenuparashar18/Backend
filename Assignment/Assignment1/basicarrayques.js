@@ -297,18 +297,31 @@
 // console.log(count); 
 
 //28. Default values using destructuring
-const user = { name: 'A' };
+// const user = { name: 'A' };
 
-// Destructure with default value for role
-const { name, role = 'user' } = user;
+// // Destructure with default value for role
+// const { name, role = 'user' } = user;
 
-console.log(name); 
-console.log(role); 
+// console.log(name); 
+// console.log(role); 
 
-function greet({ name, role = 'user' }) {
-  console.log(`Hello ${name}, your role is ${role}`);
-}
+// function greet({ name, role = 'user' }) {
+//   console.log(`Hello ${name}, your role is ${role}`);
+// }
 
-greet({ name: 'A' }); 
+// greet({ name: 'A' }); 
 
-greet({ name: 'B', role: 'admin' }); 
+// greet({ name: 'B', role: 'admin' }); 
+
+//29. Pick subset of properties (pick)
+const user = { id: 1, name: 'A', email: 'a@x' };
+const keysToPick = ['id', 'email'];
+
+const picked = keysToPick.reduce((obj, key) => {
+  if (key in user) {
+    obj[key] = user[key];
+  }
+  return obj;
+}, {});
+
+console.log(picked); 
