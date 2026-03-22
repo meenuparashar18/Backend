@@ -165,21 +165,36 @@
 // console.log(result);
 
 //15. Sliding window sums (window size k)
-const arr = [1, 2, 3, 4];
-let k = 2;
+// const arr = [1, 2, 3, 4];
+// let k = 2;
 
-let result = [];
-let windowSum = 0;
-for (let i = 0; i < k; i++) {
-  windowSum += arr[i];
+// let result = [];
+// let windowSum = 0;
+// for (let i = 0; i < k; i++) {
+//   windowSum += arr[i];
+// }
+
+// result.push(windowSum);
+
+
+// for (let i = k; i < arr.length; i++) {
+//   windowSum = windowSum + arr[i] - arr[i - k];
+//   result.push(windowSum);
+// }
+
+// console.log(result);
+
+//16. Create range array (inclusive)
+function createRange(start, end) {
+  let result = [];
+
+  if (start > end) return result; 
+
+  for (let i = start; i <= end; i++) {
+    result.push(i);
+  }
+
+  return result;
 }
 
-result.push(windowSum);
-
-
-for (let i = k; i < arr.length; i++) {
-  windowSum = windowSum + arr[i] - arr[i - k];
-  result.push(windowSum);
-}
-
-console.log(result);
+console.log(createRange(3, 6));
