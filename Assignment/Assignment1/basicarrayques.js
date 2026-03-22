@@ -104,13 +104,20 @@
 
 
 //10. Chunk array into size n
-const arr = [1, 2, 3, 4, 5];
-let n = 2;
+// const arr = [1, 2, 3, 4, 5];
+// let n = 2;
 
-let result = [];
+// let result = [];
 
-for (let i = 0; i < arr.length; i += n) {
-  result.push(arr.slice(i, i + n));
-}
+// for (let i = 0; i < arr.length; i += n) {
+//   result.push(arr.slice(i, i + n));
+// }
+
+// console.log(result);
+
+//11. Remove falsy values
+const arr = [0, 1, false, 2, '', 3, null];
+
+const result = arr.filter(Boolean);
 
 console.log(result);
