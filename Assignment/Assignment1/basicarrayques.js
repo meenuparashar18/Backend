@@ -43,14 +43,32 @@
 // console.log(reversed);
 
 //6. Remove duplicates (preserve order)
-const arr = [1, 2, 2, 3, 1];
+// const arr = [1, 2, 2, 3, 1];
 
-let result = [];
+// let result = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//   if (!result.includes(arr[i])) {
+//     result.push(arr[i]);
+//   }
+// }
+
+// console.log(result);
+
+
+//7. Count element frequency (generic)
+const arr = ['a', 'b', 'a', 'c'];
+
+let freq = {};
 
 for (let i = 0; i < arr.length; i++) {
-  if (!result.includes(arr[i])) {
-    result.push(arr[i]);
+  let val = arr[i];
+
+  if (freq[val]) {
+    freq[val]++;
+  } else {
+    freq[val] = 1;
   }
 }
 
-console.log(result);
+console.log(freq);
