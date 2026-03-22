@@ -288,3 +288,5 @@ deepCopy.a.b = 100;
 
 console.log(obj.a.b); 
 console.log(deepCopy.a.b); 
+
+//27. Count properties (keys)
