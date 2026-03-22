@@ -328,9 +328,42 @@
 
 
 //30. Omit properties (opposite of pick)
-const user = { user: 'A', password: 'x' };
+// const user = { user: 'A', password: 'x' };
 
-// Destructure the property to omit, gather the rest
-const { password, ...safeUser } = user;
+// // Destructure the property to omit, gather the rest
+// const { password, ...safeUser } = user;
 
-console.log(safeUser); 
+// console.log(safeUser); 
+
+
+//31. Merge nested objects immutably (one-level nested)
+const user = { 
+  name: 'A', 
+  address: { city: 'Old', zip: 123 } 
+};
+
+// Update city immutably
+const updatedUser = {
+  ...user,
+  address: {
+    ...user.address,
+    city: 'New'
+  }
+};
+
+console.log(updatedUser);
+/* Output:
+{
+  name: 'A',
+  address: { city: 'New', zip: 123 }
+}
+*/
+
+// Original object remains unchanged
+console.log(user);
+/* Output:
+{
+  name: 'A',
+  address: { city: 'Old', zip: 123 }
+}
+*/
