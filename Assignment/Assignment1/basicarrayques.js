@@ -405,16 +405,22 @@
 //Use the base data for many questions (adjusted per question):
 
 //35. Total spending per user (aggregate)
-const orders = [
-  { id: 1, userId: 1, total: 500, status: 'completed' },
-  { id: 2, userId: 2, total: 300, status: 'pending' },
-  { id: 3, userId: 1, total: 200, status: 'completed' },
-  { id: 4, userId: 3, total: 700, status: 'completed' }
-];
+// const orders = [
+//   { id: 1, userId: 1, total: 500, status: 'completed' },
+//   { id: 2, userId: 2, total: 300, status: 'pending' },
+//   { id: 3, userId: 1, total: 200, status: 'completed' },
+//   { id: 4, userId: 3, total: 700, status: 'completed' }
+// ];
 
-const totalSpentPerUser = orders.reduce((acc, order) => {
-  acc[order.userId] = (acc[order.userId] || 0) + order.total;
-  return acc;
-}, {});
+// const totalSpentPerUser = orders.reduce((acc, order) => {
+//   acc[order.userId] = (acc[order.userId] || 0) + order.total;
+//   return acc;
+// }, {});
 
-console.log(totalSpentPerUser);
+// console.log(totalSpentPerUser);
+
+//36. Completed orders only (filter)
+const completedOrders = orders.filter(order => order.status === 'completed');
+
+console.log(completedOrders);
+
