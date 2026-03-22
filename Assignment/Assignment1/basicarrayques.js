@@ -23,11 +23,21 @@
 // console.log(max);
 
 //4. Minimum value with reduce
-const arr=[7,3,9,0];
-let min=arr[0];
-for(let i=1; i<arr.length; i++){
-    if(arr[i]<min){
-        min=arr[i];
-    }
+// const arr=[7,3,9,0];
+// let min=arr[0];
+// for(let i=1; i<arr.length; i++){
+//     if(arr[i]<min){
+//         min=arr[i];
+//     }
+// }
+// console.log(min);
+
+//5. Reverse an array (manual)
+const arr = [1, 2, 3];
+
+let reversed = [];
+
+for (let i = arr.length - 1; i >= 0; i--) {
+  reversed.push(arr[i]);
 }
-console.log(min);
+console.log(reversed);
