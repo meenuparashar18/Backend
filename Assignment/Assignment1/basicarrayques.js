@@ -386,11 +386,15 @@
 
 
 //33. Merge defaults with provided config
-const defaults = { retries: 3, timeout: 500 };
-const config = { timeout: 100 };
+// const defaults = { retries: 3, timeout: 500 };
+// const config = { timeout: 100 };
+// const mergedConfig = { ...defaults, ...config };
 
-// Merge, giving priority to `config`
-const mergedConfig = { ...defaults, ...config };
+// console.log(mergedConfig);
 
-console.log(mergedConfig);
-// Output: { retries: 3, timeout: 100 }
+//34. Check if object is empty
+const obj1 = {};
+
+const isEmpty = Object.keys(obj1).length === 0;
+
+console.log(isEmpty); 
