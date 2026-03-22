@@ -255,8 +255,16 @@
 // console.log(newObj);
 
 //23. Delete property immutably
-const user = { name: 'A', password: 'x' };
+// const user = { name: 'A', password: 'x' };
 
-const { password, ...rest } = user;
+// const { password, ...rest } = user;
 
-console.log(rest);
+// console.log(rest);
+
+//24. Merge two objects (deep vs shallow)
+const a = { x: 1 };
+const b = { y: 2 };
+
+const result = { ...a, ...b };
+
+console.log(result);
