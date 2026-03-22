@@ -138,9 +138,28 @@
 // console.log(index);
 
 //13. Merge two arrays immutably
-const arr1 = [1, 2];
-const arr2 = [3, 4];
+// const arr1 = [1, 2];
+// const arr2 = [3, 4];
 
-const result = [...arr1, ...arr2];
+// const result = [...arr1, ...arr2];
+
+// console.log(result);
+
+//14. Interleave two arrays
+const arr1 = [1, 2];
+const arr2 = [10, 20];
+
+let result = [];
+
+let maxLen = Math.max(arr1.length, arr2.length);
+
+for (let i = 0; i < maxLen; i++) {
+  if (i < arr1.length) {
+    result.push(arr1[i]);
+  }
+  if (i < arr2.length) {
+    result.push(arr2[i]);
+  }
+}
 
 console.log(result);
