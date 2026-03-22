@@ -290,8 +290,25 @@
 // console.log(deepCopy.a.b); 
 
 //27. Count properties (keys)
-const obj = { a: 1, b: 2 };
+// const obj = { a: 1, b: 2 };
 
-const count = Object.keys(obj).length;
+// const count = Object.keys(obj).length;
 
-console.log(count); 
+// console.log(count); 
+
+//28. Default values using destructuring
+const user = { name: 'A' };
+
+// Destructure with default value for role
+const { name, role = 'user' } = user;
+
+console.log(name); 
+console.log(role); 
+
+function greet({ name, role = 'user' }) {
+  console.log(`Hello ${name}, your role is ${role}`);
+}
+
+greet({ name: 'A' }); 
+
+greet({ name: 'B', role: 'admin' }); 
