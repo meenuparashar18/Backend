@@ -240,8 +240,16 @@
 
 
 //21. List keys and values (iteration)
-const obj = { name: 'Aman', age: 22 };
+// const obj = { name: 'Aman', age: 22 };
 
-for (let key in obj) {
-  console.log(key, obj[key]);
-}
+// for (let key in obj) {
+//   console.log(key, obj[key]);
+// }
+
+
+//22. Add / update property immutably
+const obj = { name: 'Aman' };
+
+const newObj = { ...obj, role: 'admin' };
+
+console.log(newObj);
