@@ -116,8 +116,23 @@
 // console.log(result);
 
 //11. Remove falsy values
-const arr = [0, 1, false, 2, '', 3, null];
+// const arr = [0, 1, false, 2, '', 3, null];
 
-const result = arr.filter(Boolean);
+// const result = arr.filter(Boolean);
 
-console.log(result);
+// console.log(result);
+
+//12. Find index of first occurrence (manual)
+const arr = ['a', 'b', 'c'];
+const target = 'b';
+
+let index = -1;
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] === target) {
+    index = i;
+    break; 
+  }
+}
+
+console.log(index);
