@@ -200,12 +200,19 @@
 // console.log(createRange(3, 6));
 
 // 17. Remove item at index immutably
-const arr = [1, 2, 3];
-const i = 1;
+// const arr = [1, 2, 3];
+// const i = 1;
 
-const result = [
-  ...arr.slice(0, i),
-  ...arr.slice(i + 1)
-];
+// const result = [
+//   ...arr.slice(0, i),
+//   ...arr.slice(i + 1)
+// ];
 
-console.log(result);
+// console.log(result);
+
+//18. Count elements matching predicate
+const arr = [5, 12, 8, 20];
+
+const count = arr.filter(x => x > 10).length;
+
+console.log(count);
