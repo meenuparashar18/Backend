@@ -314,14 +314,23 @@
 // greet({ name: 'B', role: 'admin' }); 
 
 //29. Pick subset of properties (pick)
-const user = { id: 1, name: 'A', email: 'a@x' };
-const keysToPick = ['id', 'email'];
+// const user = { id: 1, name: 'A', email: 'a@x' };
+// const keysToPick = ['id', 'email'];
 
-const picked = keysToPick.reduce((obj, key) => {
-  if (key in user) {
-    obj[key] = user[key];
-  }
-  return obj;
-}, {});
+// const picked = keysToPick.reduce((obj, key) => {
+//   if (key in user) {
+//     obj[key] = user[key];
+//   }
+//   return obj;
+// }, {});
 
-console.log(picked); 
+// console.log(picked); 
+
+
+//30. Omit properties (opposite of pick)
+const user = { user: 'A', password: 'x' };
+
+// Destructure the property to omit, gather the rest
+const { password, ...safeUser } = user;
+
+console.log(safeUser); 
