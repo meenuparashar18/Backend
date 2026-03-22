@@ -90,14 +90,27 @@
 // console.log(result);
 
 //9. Rotate array by k steps (right)
-const arr = [1, 2, 3, 4];
-let k = 1;
+// const arr = [1, 2, 3, 4];
+// let k = 1;
 
-k = k % arr.length; 
+// k = k % arr.length; 
 
-const result = [
-  ...arr.slice(-k),
-  ...arr.slice(0, arr.length - k)
-];
+// const result = [
+//   ...arr.slice(-k),
+//   ...arr.slice(0, arr.length - k)
+// ];
+
+// console.log(result);
+
+
+//10. Chunk array into size n
+const arr = [1, 2, 3, 4, 5];
+let n = 2;
+
+let result = [];
+
+for (let i = 0; i < arr.length; i += n) {
+  result.push(arr.slice(i, i + n));
+}
 
 console.log(result);
