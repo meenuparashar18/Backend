@@ -420,7 +420,29 @@
 // console.log(totalSpentPerUser);
 
 //36. Completed orders only (filter)
-const completedOrders = orders.filter(order => order.status === 'completed');
+// const completedOrders = orders.filter(order => order.status === 'completed');
 
-console.log(completedOrders);
+// console.log(completedOrders);
+
+//37. Join user info into orders (left join)
+// const users = [
+//   { id: 1, name: 'Aman' },
+//   { id: 2, name: 'Meenu' },
+//   { id: 3, name: 'Ravi' }
+// ];
+
+// Precompute lookup map
+// const userById = users.reduce((map, user) => {
+//   map[user.id] = user.name;
+//   return map;
+// }, {});
+
+// const ordersWithUser = orders.map(order => ({
+//   ...order,
+//   userName: userById[order.userId] || null
+// }));
+
+// console.log(ordersWithUser);
+
+
 
