@@ -447,26 +447,34 @@
 
 
 //38. Orders grouped by userId
-const orders = [
-  { id: 1, userId: 1 },
-  { id: 2, userId: 2 },
-  { id: 3, userId: 1 },
-  { id: 4, userId: 3 }
-];
-const groupedOrders = orders.reduce((acc, order) => {
-  const userId = order.userId;
+// const orders = [
+//   { id: 1, userId: 1 },
+//   { id: 2, userId: 2 },
+//   { id: 3, userId: 1 },
+//   { id: 4, userId: 3 }
+// ];
+// const groupedOrders = orders.reduce((acc, order) => {
+//   const userId = order.userId;
 
-  // agar pehle se userId exist nahi karta
-  if (!acc[userId]) {
-    acc[userId] = [];
-  }
+//   // agar pehle se userId exist nahi karta
+//   if (!acc[userId]) {
+//     acc[userId] = [];
+//   }
 
-  // order push kar do
-  acc[userId].push(order);
+//   // order push kar do
+//   acc[userId].push(order);
 
-  return acc;
-}, {});
+//   return acc;
+// }, {});
 
-console.log(groupedOrders);
+// console.log(groupedOrders);
+
+
+//39. 39. Top N orders by total (sorting + slice)
+function topNOrders(orders, N) {
+    return [...orders]                 // copy to avoid mutation
+        .sort((a, b) => b.total - a.total)  // descending order
+        .slice(0, N);                 // take top N
+}
 
 
