@@ -471,10 +471,34 @@
 
 
 //39. 39. Top N orders by total (sorting + slice)
-function topNOrders(orders, N) {
-    return [...orders]                 // copy to avoid mutation
-        .sort((a, b) => b.total - a.total)  // descending order
-        .slice(0, N);                 // take top N
-}
+// function topNOrders(orders, N) {
+//     return [...orders]                 // copy to avoid mutation
+//         .sort((a, b) => b.total - a.total)  // descending order
+//         .slice(0, N);                 // take top N
+// }
 
+
+//40. Average order total per user
+function averageOrderPerUser(orders) {
+
+    const result = orders.reduce((acc, order) => {
+        const { userId, total } = order;
+
+        if (!acc[userId]) {
+            acc[userId] = { sum: 0, count: 0 };
+        }
+
+        acc[userId].sum += total;
+        acc[userId].count += 1;
+
+        return acc;
+    }, {});
+
+    // convert sum → average
+    for (let userId in result) {
+        result[userId] = result[userId].sum / result[userId].count;
+    }
+
+    return result;
+}
 
