@@ -495,10 +495,10 @@ function averageOrderPerUser(orders) {
     }, {});
 
     // convert sum → average
-    for (let userId in result) {
-        result[userId] = result[userId].sum / result[userId].count;
-    }
+//     for (let userId in result) {
+//         result[userId] = result[userId].sum / result[userId].count;
+//     }
 
-    return result;
+//     return result;
+// }
 }
-
