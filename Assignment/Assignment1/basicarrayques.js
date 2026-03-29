@@ -502,3 +502,29 @@ function averageOrderPerUser(orders) {
 //     return result;
 // }
 }
+
+
+//41. Users who placed at least one order (unique)
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" },
+  { id: 3, name: "Rahul" },
+  { id: 4, name: "Neha" }
+];
+
+const orders = [
+  { id: 1, userId: 1 },
+  { id: 2, userId: 2 },
+  { id: 3, userId: 1 },
+  { id: 4, userId: 3 }
+];
+
+// Step 1: unique userIds
+const userIds = new Set(orders.map(o => o.userId));
+
+// Step 2: map to names
+const result = users
+  .filter(user => userIds.has(user.id))
+  .map(user => user.name);
+
+console.log(result);
