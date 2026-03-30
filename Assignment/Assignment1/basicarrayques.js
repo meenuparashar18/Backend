@@ -528,3 +528,8 @@ const result = users
   .map(user => user.name);
 
 console.log(result);
+
+
+
+//42. Users with no orders (anti-join)
+
