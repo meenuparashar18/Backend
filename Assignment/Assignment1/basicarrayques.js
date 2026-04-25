@@ -652,3 +652,32 @@ console.log(updatedOrders);
 
 // original array unchanged
 console.log(orders);
+//47. Soft-delete pattern (mark deleted)
+const orders = [
+  { id: 1, status: "pending" },
+  { id: 2, status: "completed" },
+  { id: 3, status: "pending" }
+];
+
+function softDeleteOrder(orders, orderId) {
+  return orders.map(order =>
+    order.id === orderId
+      ? { ...order, deleted: true } // mark as deleted
+      : order
+  );
+}
+
+// Example
+const updatedOrders = softDeleteOrder(orders, 3);
+
+console.log(updatedOrders);
+/*
+[
+  { id: 1, status: "pending" },
+  { id: 2, status: "completed" },
+  { id: 3, status: "pending", deleted: true }
+]
+*/
+
+// original array unchanged
+console.log(orders);
