@@ -856,3 +856,42 @@ function findInvalidOrders(orders) {
 // Example
 console.log(findInvalidOrders(orders));
 // Output: [ { id: 5, total: 100 } ]
+
+//54. Merge newer orders array into existing (upsert)
+
+const existing = [
+  { id: 1, total: 500 },
+  { id: 2, total: 300 }
+];
+
+const incoming = [
+  { id: 1, total: 600 }, // replace
+  { id: 3, total: 200 }  // new
+];
+
+function upsertOrders(existing, incoming) {
+  // Step 1: id map banao
+  const map = {};
+
+  existing.forEach(o => {
+    map[o.id] = o;
+  });
+
+  // Step 2: incoming se overwrite/add
+  incoming.forEach(o => {
+    map[o.id] = o;
+  });
+
+  // Step 3: array + sort
+  return Object.values(map).sort((a, b) => a.id - b.id);
+}
+
+// Example
+console.log(upsertOrders(existing, incoming));
+/*
+[
+  { id: 1, total: 600 },
+  { id: 2, total: 300 },
+  { id: 3, total: 200 }
+]
+*/
