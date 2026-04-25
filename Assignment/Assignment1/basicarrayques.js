@@ -730,3 +730,34 @@ console.log(getUserSummary(users, orders));
   { userId: 2, name: "Riya", totalOrders: 1, totalSpent: 200 }
 ]
 */
+
+//49. Compute percent contribution per user (of total revenue)
+const orders = [
+  { id: 101, userId: 1, amount: 300 },
+  { id: 102, userId: 1, amount: 400 },
+  { id: 103, userId: 2, amount: 1000 }
+];
+
+function percentContribution(orders) {
+  // Step 1: total revenue nikaalo
+  const totalRevenue = orders.reduce((sum, o) => sum + o.amount, 0);
+
+  // Step 2: per user total nikaalo
+  const revenueByUser = orders.reduce((acc, o) => {
+    acc[o.userId] = (acc[o.userId] || 0) + o.amount;
+    return acc;
+  }, {});
+
+  // Step 3: percent calculate karo (2 decimal)
+  const result = {};
+  for (let userId in revenueByUser) {
+    const value = revenueByUser[userId];
+    result[userId] = Number(((value / totalRevenue) * 100).toFixed(2));
+  }
+
+  return result;
+}
+
+// Example
+console.log(percentContribution(orders));
+// Output: { '1': 41.18, '2': 58.82 }
