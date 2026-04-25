@@ -1143,3 +1143,43 @@ id,name
 1,Aman
 2,Riya
 */
+
+//64. Merge user preferences into user objects (left join with defaults)
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" },
+  { id: 3, name: "Rahul" }
+];
+
+const preferences = [
+  { userId: 1, theme: "dark" }
+];
+
+// default preferences
+const defaultPrefs = { theme: "light" };
+
+function mergePreferences(users, preferences) {
+  // Step 1: preference map banao (userId -> pref)
+  const prefMap = Object.fromEntries(
+    preferences.map(p => [p.userId, p])
+  );
+
+  // Step 2: users pe map chalao (left join)
+  return users.map(u => ({
+    ...u,
+    preferences: {
+      ...defaultPrefs,
+      ...(prefMap[u.id] || {})
+    }
+  }));
+}
+
+// Example
+console.log(mergePreferences(users, preferences));
+/*
+[
+  { id: 1, name: "Aman", preferences: { theme: "dark" } },
+  { id: 2, name: "Riya", preferences: { theme: "light" } },
+  { id: 3, name: "Rahul", preferences: { theme: "light" } }
+]
+*/
