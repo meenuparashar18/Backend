@@ -979,3 +979,26 @@ function ageHistogram(users) {
 // Example
 console.log(ageHistogram(users));
 // Output: { '<18': 1, '18-24': 2, '25+': 1 }
+
+//58. Build lookup map for users by id (cache)
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" }
+];
+
+function buildUserMap(users) {
+  return users.reduce((acc, user) => {
+    acc[user.id] = user;
+    return acc;
+  }, {});
+}
+
+// Example
+const userMap = buildUserMap(users);
+console.log(userMap);
+/*
+{
+  1: { id: 1, name: "Aman" },
+  2: { id: 2, name: "Riya" }
+}
+*/
