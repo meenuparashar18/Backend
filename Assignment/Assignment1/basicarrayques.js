@@ -1091,3 +1091,29 @@ console.log(normalizeOrders(orders));
   { orderId: 2, productId: 5, qty: 3 }
 ]
 */
+//62. Calculate lifetime value per user (LTV) with weights
+const orders = [
+  { id: 1, userId: 1, amount: 300, status: "completed" },
+  { id: 2, userId: 1, amount: 400, status: "completed" },
+  { id: 3, userId: 2, amount: 300, status: "pending" }
+];
+
+// weight map
+const weights = {
+  completed: 1.0,
+  pending: 0.5
+};
+
+function calculateWeightedLTV(orders) {
+  return orders.reduce((acc, o) => {
+    const weight = weights[o.status] ?? 1; // default 1
+    const value = o.amount * weight;
+
+    acc[o.userId] = (acc[o.userId] || 0) + value;
+    return acc;
+  }, {});
+}
+
+// Example
+console.log(calculateWeightedLTV(orders));
+// Output: { '1': 700, '2': 150 }
