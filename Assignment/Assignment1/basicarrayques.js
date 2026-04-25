@@ -895,3 +895,40 @@ console.log(upsertOrders(existing, incoming));
   { id: 3, total: 200 }
 ]
 */
+
+//55. Group users by activity status (active/inactive)
+const users = [
+  { id: 1, name: "Aman", active: true },
+  { id: 2, name: "Riya", active: false },
+  { id: 3, name: "Rahul", active: true },
+  { id: 4, name: "Neha", active: false }
+];
+
+function groupByActivity(users) {
+  return users.reduce(
+    (acc, user) => {
+      if (user.active) {
+        acc.active.push(user);
+      } else {
+        acc.inactive.push(user);
+      }
+      return acc;
+    },
+    { active: [], inactive: [] }
+  );
+}
+
+// Example
+console.log(groupByActivity(users));
+/*
+{
+  active: [
+    { id: 1, name: "Aman", active: true },
+    { id: 3, name: "Rahul", active: true }
+  ],
+  inactive: [
+    { id: 2, name: "Riya", active: false },
+    { id: 4, name: "Neha", active: false }
+  ]
+}
+*/
