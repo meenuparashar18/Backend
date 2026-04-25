@@ -1183,3 +1183,59 @@ console.log(mergePreferences(users, preferences));
   { id: 3, name: "Rahul", preferences: { theme: "light" } }
 ]
 */
+//65. Snapshot diff: detect changed users between two lists
+const oldUsers = [
+  { id: 1, name: "A", age: 20 },
+  { id: 2, name: "Riya", age: 22 }
+];
+
+const newUsers = [
+  { id: 1, name: "Aman", age: 20 },
+  { id: 2, name: "Riya", age: 23 }
+];
+
+function diffUsers(oldUsers, newUsers) {
+  // Step 1: maps banao (id -> user)
+  const oldMap = Object.fromEntries(oldUsers.map(u => [u.id, u]));
+  const newMap = Object.fromEntries(newUsers.map(u => [u.id, u]));
+
+  const result = [];
+
+  // Step 2: ids loop karo
+  for (let id in newMap) {
+    const oldUser = oldMap[id];
+    const newUser = newMap[id];
+
+    if (!oldUser) continue; // ignore new-only users
+
+    const changedFields = [];
+
+    // Step 3: shallow compare fields
+    for (let key in newUser) {
+      if (key === "id") continue;
+
+      if (oldUser[key] !== newUser[key]) {
+        changedFields.push(key);
+      }
+    }
+
+    // Step 4: only push if changes found
+    if (changedFields.length > 0) {
+      result.push({
+        id: Number(id),
+        changedFields
+      });
+    }
+  }
+
+  return result;
+}
+
+// Example
+console.log(diffUsers(oldUsers, newUsers));
+/*
+[
+  { id: 1, changedFields: ["name"] },
+  { id: 2, changedFields: ["age"] }
+]
+*/
