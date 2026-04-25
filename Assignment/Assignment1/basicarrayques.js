@@ -806,3 +806,36 @@ console.log(addTaxAndGrandTotal(orders));
   { id: 2, total: 250, tax: 45.00, grandTotal: 295.00 }
 ]
 */
+//52. Bulk update: increase totals by percentage for promotions
+const orders = [
+  { id: 1, total: 500, status: "completed" },
+  { id: 2, total: 300, status: "pending" },
+  { id: 3, total: 200, status: "completed" }
+];
+
+function applyPromotion(orders, percentIncrease = 10) {
+  return orders.map(o => {
+    if (o.status === "completed") {
+      const increasedTotal = +(o.total * (1 + percentIncrease / 100)).toFixed(2);
+
+      return {
+        ...o,
+        total: increasedTotal
+      };
+    }
+    return o; // unchanged
+  });
+}
+
+// Example
+console.log(applyPromotion(orders));
+/*
+[
+  { id: 1, total: 550, status: "completed" },
+  { id: 2, total: 300, status: "pending" },
+  { id: 3, total: 220, status: "completed" }
+]
+*/
+
+// original array unchanged
+console.log(orders);
