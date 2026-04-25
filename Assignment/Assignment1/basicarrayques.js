@@ -839,3 +839,20 @@ console.log(applyPromotion(orders));
 
 // original array unchanged
 console.log(orders);
+
+//53. Validate payloads: find invalid orders (missing fields)
+const orders = [
+  { id: 1, userId: 1, total: 500 },
+  { id: 2, userId: 2, total: 300 },
+  { id: 5, total: 100 } // invalid (missing userId)
+];
+
+function findInvalidOrders(orders) {
+  return orders.filter(o =>
+    o.id == null || o.userId == null || o.total == null
+  );
+}
+
+// Example
+console.log(findInvalidOrders(orders));
+// Output: [ { id: 5, total: 100 } ]
