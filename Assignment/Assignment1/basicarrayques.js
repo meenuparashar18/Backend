@@ -932,3 +932,21 @@ console.log(groupByActivity(users));
   ]
 }
 */
+
+//56. Multi-criteria filter (age and activity)
+const users = [
+  { id: 1, name: "Aman", age: 20, isActive: true },
+  { id: 2, name: "Riya", age: 17, isActive: true },
+  { id: 3, name: "Rahul", age: 22, isActive: true },
+  { id: 4, name: "Neha", age: 19, isActive: false }
+];
+
+function getEligibleUsers(users) {
+  return users
+    .filter(u => u.isActive && u.age >= 18)
+    .map(u => u.name);
+}
+
+// Example
+console.log(getEligibleUsers(users));
+// Output: ["Aman", "Rahul"]
