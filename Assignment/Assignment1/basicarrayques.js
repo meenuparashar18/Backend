@@ -622,3 +622,33 @@ function countByStatus(orders) {
 
 // Example
 console.log(countByStatus(orders));
+
+//46. Update order status immutably (PATCH pattern)
+const orders = [
+  { id: 1, status: "pending" },
+  { id: 2, status: "pending" },
+  { id: 3, status: "completed" }
+];
+
+function updateOrderStatus(orders, orderId, newStatus) {
+  return orders.map(order =>
+    order.id === orderId
+      ? { ...order, status: newStatus } // new object (updated)
+      : order // same object (unchanged)
+  );
+}
+
+// Example
+const updatedOrders = updateOrderStatus(orders, 2, "completed");
+
+console.log(updatedOrders);
+/*
+[
+  { id: 1, status: "pending" },
+  { id: 2, status: "completed" },
+  { id: 3, status: "completed" }
+]
+*/
+
+// original array unchanged
+console.log(orders);
