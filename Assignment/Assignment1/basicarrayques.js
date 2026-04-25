@@ -778,3 +778,31 @@ function toOrderDTO(orders) {
 // Example
 console.log(toOrderDTO(orders));
 // Output: [ { id: 1, total: 500 }, { id: 2, total: 300 } ]
+
+//51. Add computed field — tax and grand total (map)
+const orders = [
+  { id: 1, total: 100 },
+  { id: 2, total: 250 }
+];
+
+function addTaxAndGrandTotal(orders) {
+  return orders.map(o => {
+    const tax = +(o.total * 0.18).toFixed(2);
+    const grandTotal = +(o.total + tax).toFixed(2);
+
+    return {
+      ...o,
+      tax,
+      grandTotal
+    };
+  });
+}
+
+// Example
+console.log(addTaxAndGrandTotal(orders));
+/*
+[
+  { id: 1, total: 100, tax: 18.00, grandTotal: 118.00 },
+  { id: 2, total: 250, tax: 45.00, grandTotal: 295.00 }
+]
+*/
