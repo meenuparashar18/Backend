@@ -505,31 +505,51 @@ function averageOrderPerUser(orders) {
 
 
 //41. Users who placed at least one order (unique)
-const users = [
-  { id: 1, name: "Aman" },
-  { id: 2, name: "Riya" },
-  { id: 3, name: "Rahul" },
-  { id: 4, name: "Neha" }
-];
+// const users = [
+//   { id: 1, name: "Aman" },
+//   { id: 2, name: "Riya" },
+//   { id: 3, name: "Rahul" },
+//   { id: 4, name: "Neha" }
+// ];
 
-const orders = [
-  { id: 1, userId: 1 },
-  { id: 2, userId: 2 },
-  { id: 3, userId: 1 },
-  { id: 4, userId: 3 }
-];
+// const orders = [
+//   { id: 1, userId: 1 },
+//   { id: 2, userId: 2 },
+//   { id: 3, userId: 1 },
+//   { id: 4, userId: 3 }
+// ];
 
-// Step 1: unique userIds
-const userIds = new Set(orders.map(o => o.userId));
+// // Step 1: unique userIds
+// const userIds = new Set(orders.map(o => o.userId));
 
-// Step 2: map to names
-const result = users
-  .filter(user => userIds.has(user.id))
-  .map(user => user.name);
+// // Step 2: map to names
+// const result = users
+//   .filter(user => userIds.has(user.id))
+//   .map(user => user.name);
 
-console.log(result);
+// console.log(result);
 
 
 
 //42. Users with no orders (anti-join)
 
+// const users = [
+//   { id: 1, name: "Aman" },
+//   { id: 2, name: "Riya" },
+//   { id: 3, name: "Neha" }
+// ];
+
+// const orders = [
+//   { id: 101, userId: 1 },
+//   { id: 102, userId: 2 }
+// ];
+
+
+// const orderUserIds = new Set(orders.map(o => o.userId));
+
+
+// const result = users
+//   .filter(u => !orderUserIds.has(u.id))
+//   .map(u => u.name);
+
+// console.log(result); 
