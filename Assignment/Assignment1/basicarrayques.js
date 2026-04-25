@@ -1002,3 +1002,40 @@ console.log(userMap);
   2: { id: 2, name: "Riya" }
 }
 */
+//59. Top K users by spending (join + sort)
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" },
+  { id: 3, name: "Rahul" }
+];
+
+const orders = [
+  { id: 101, userId: 1, amount: 300 },
+  { id: 102, userId: 1, amount: 400 },
+  { id: 103, userId: 3, amount: 800 },
+  { id: 104, userId: 2, amount: 200 }
+];
+
+function topKUsersBySpending(users, orders, k) {
+  // Step 1: total spend per user
+  const spendByUser = orders.reduce((acc, o) => {
+    acc[o.userId] = (acc[o.userId] || 0) + o.amount;
+    return acc;
+  }, {});
+
+  // Step 2: userId -> user map (fast lookup)
+  const userMap = Object.fromEntries(users.map(u => [u.id, u]));
+
+  // Step 3: convert to array + sort desc
+  const sorted = Object.entries(spendByUser)
+    .sort((a, b) => b[1] - a[1]);
+
+  // Step 4: top k + map to names
+  return sorted
+    .slice(0, k)
+    .map(([userId]) => userMap[userId]?.name);
+}
+
+// Example
+console.log(topKUsersBySpending(users, orders, 2));
+// Output: ["Rahul", "Aman"]
