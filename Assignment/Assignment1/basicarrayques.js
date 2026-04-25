@@ -681,3 +681,52 @@ console.log(updatedOrders);
 
 // original array unchanged
 console.log(orders);
+
+//48. Merge two datasets into API response (user summary
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" }
+];
+
+const orders = [
+  { id: 101, userId: 1, amount: 300 },
+  { id: 102, userId: 1, amount: 400 },
+  { id: 103, userId: 2, amount: 200 }
+];
+
+function getUserSummary(users, orders) {
+  // Step 1: orders ko userId ke hisaab se aggregate karo
+  const ordersByUser = orders.reduce((acc, order) => {
+    const { userId, amount } = order;
+
+    if (!acc[userId]) {
+      acc[userId] = { totalOrders: 0, totalSpent: 0 };
+    }
+
+    acc[userId].totalOrders += 1;
+    acc[userId].totalSpent += amount;
+
+    return acc;
+  }, {});
+
+  // Step 2: users pe map chala ke final response banao
+  return users.map(user => {
+    const stats = ordersByUser[user.id] || { totalOrders: 0, totalSpent: 0 };
+
+    return {
+      userId: user.id,
+      name: user.name,
+      totalOrders: stats.totalOrders,
+      totalSpent: stats.totalSpent
+    };
+  });
+}
+
+// Example
+console.log(getUserSummary(users, orders));
+/*
+[
+  { userId: 1, name: "Aman", totalOrders: 2, totalSpent: 700 },
+  { userId: 2, name: "Riya", totalOrders: 1, totalSpent: 200 }
+]
+*/
