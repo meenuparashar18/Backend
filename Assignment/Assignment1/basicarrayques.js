@@ -950,3 +950,32 @@ function getEligibleUsers(users) {
 // Example
 console.log(getEligibleUsers(users));
 // Output: ["Aman", "Rahul"]
+
+//57. Compute histogram of ages (bucketed)
+const users = [
+  { id: 1, name: "Aman", age: 20 },
+  { id: 2, name: "Riya", age: 17 },
+  { id: 3, name: "Rahul", age: 22 },
+  { id: 4, name: "Neha", age: 26 }
+];
+
+function ageHistogram(users) {
+  return users.reduce((acc, u) => {
+    let bucket;
+
+    if (u.age < 18) {
+      bucket = "<18";
+    } else if (u.age <= 24) {
+      bucket = "18-24";
+    } else {
+      bucket = "25+";
+    }
+
+    acc[bucket] = (acc[bucket] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+// Example
+console.log(ageHistogram(users));
+// Output: { '<18': 1, '18-24': 2, '25+': 1 }
