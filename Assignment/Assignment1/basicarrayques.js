@@ -553,3 +553,33 @@ function averageOrderPerUser(orders) {
 //   .map(u => u.name);
 
 // console.log(result); 
+
+//43. Paginate results (page, limit)
+function paginate(orders, page, limit) {
+  const totalItems = orders.length;
+
+  // total pages calculate karo
+  const totalPages = Math.ceil(totalItems / limit);
+
+  const start = (page - 1) * limit;
+  const end = start + limit;
+
+  // data slice karo
+  const data = orders.slice(start, end);
+
+  return {
+    page,
+    totalPages,
+    data
+  };
+}
+
+// Example
+const orders = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+  { id: 4 }
+];
+
+console.log(paginate(orders, 1, 2));
