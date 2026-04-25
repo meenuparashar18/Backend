@@ -583,3 +583,20 @@ const orders = [
 ];
 
 console.log(paginate(orders, 1, 2));
+//44. Search users by name substring (case-insensitive)
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" },
+  { id: 3, name: "Neha" }
+];
+
+function searchUsers(users, query) {
+  return users
+    .filter(u =>
+      u.name.toLowerCase().includes(query.toLowerCase())
+    )
+    .map(u => u.name);
+}
+
+// Example
+console.log(searchUsers(users, "am")); // ["Aman"]
