@@ -600,3 +600,25 @@ function searchUsers(users, query) {
 
 // Example
 console.log(searchUsers(users, "am")); // ["Aman"]
+
+//45. Count orders by status (aggregation)
+const orders = [
+  { id: 1, status: "completed" },
+  { id: 2, status: "pending" },
+  { id: 3, status: "completed" },
+  { id: 4, status: "completed" }
+];
+
+function countByStatus(orders) {
+  return orders.reduce((acc, order) => {
+    const status = order.status;
+
+
+    acc[status] = (acc[status] || 0) + 1;
+
+    return acc;
+  }, {});
+}
+
+// Example
+console.log(countByStatus(orders));
