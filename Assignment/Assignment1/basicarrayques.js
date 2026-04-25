@@ -1054,3 +1054,40 @@ function getUniqueStatuses(orders) {
 // Example
 console.log(getUniqueStatuses(orders));
 // Output: ["completed", "pending"]
+
+//61. Normalize nested arrays (orders with product arrays)
+const orders = [
+  {
+    id: 1,
+    products: [
+      { productId: 5, qty: 2 },
+      { productId: 6, qty: 1 }
+    ]
+  },
+  {
+    id: 2,
+    products: [
+      { productId: 5, qty: 3 }
+    ]
+  }
+];
+
+function normalizeOrders(orders) {
+  return orders.flatMap(order =>
+    order.products.map(p => ({
+      orderId: order.id,
+      productId: p.productId,
+      qty: p.qty
+    }))
+  );
+}
+
+// Example
+console.log(normalizeOrders(orders));
+/*
+[
+  { orderId: 1, productId: 5, qty: 2 },
+  { orderId: 1, productId: 6, qty: 1 },
+  { orderId: 2, productId: 5, qty: 3 }
+]
+*/
