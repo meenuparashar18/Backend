@@ -761,3 +761,20 @@ function percentContribution(orders) {
 // Example
 console.log(percentContribution(orders));
 // Output: { '1': 41.18, '2': 58.82 }
+
+//50. Transform orders to minimal DTO (Data Transfer Object)
+const orders = [
+  { id: 1, amount: 500, userId: 1, status: "completed" },
+  { id: 2, amount: 300, userId: 2, status: "pending" }
+];
+
+function toOrderDTO(orders) {
+  return orders.map(o => ({
+    id: o.id,
+    total: o.amount
+  }));
+}
+
+// Example
+console.log(toOrderDTO(orders));
+// Output: [ { id: 1, total: 500 }, { id: 2, total: 300 } ]
