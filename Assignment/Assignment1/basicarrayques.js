@@ -1039,3 +1039,18 @@ function topKUsersBySpending(users, orders, k) {
 // Example
 console.log(topKUsersBySpending(users, orders, 2));
 // Output: ["Rahul", "Aman"]
+
+//60. Distinct values for a field (unique statuses)
+const orders = [
+  { id: 1, status: "completed" },
+  { id: 2, status: "pending" },
+  { id: 3, status: "completed" }
+];
+
+function getUniqueStatuses(orders) {
+  return [...new Set(orders.map(o => o.status))];
+}
+
+// Example
+console.log(getUniqueStatuses(orders));
+// Output: ["completed", "pending"]
