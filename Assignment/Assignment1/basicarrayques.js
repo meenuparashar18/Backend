@@ -1117,3 +1117,29 @@ function calculateWeightedLTV(orders) {
 // Example
 console.log(calculateWeightedLTV(orders));
 // Output: { '1': 700, '2': 150 }
+
+//63. Convert array of users to CSV string (export)
+const users = [
+  { id: 1, name: "Aman" },
+  { id: 2, name: "Riya" }
+];
+
+function toCSV(users) {
+  if (!users.length) return "";
+
+  const headers = Object.keys(users[0]);
+
+  const rows = users.map(obj =>
+    headers.map(h => obj[h]).join(",")
+  );
+
+  return headers.join(",") + "\n" + rows.join("\n") + "\n";
+}
+
+// Example
+console.log(toCSV(users));
+/*
+id,name
+1,Aman
+2,Riya
+*/
